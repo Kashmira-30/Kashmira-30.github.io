@@ -4,7 +4,7 @@
 
 ### Category Name 1 
 
-[Project 1](/sample_page)
+[Project 1](/Project/index)
 <img src="Project/Lab8_Project.png?raw=true"/>
 
 ---
