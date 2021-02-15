@@ -5,15 +5,15 @@
 ### Category Name 1 
 
 [Project 1](/sample_page)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="Project/Lab8_Project.png?raw=true"/>
 
 ---
 [Project 2](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="Project 2/lab1_project2.png?raw=true"/>
 
 ---
 [Project 3](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<img src="Project 3/lab3_project3.png?raw=true"/>
 
 ---
 
