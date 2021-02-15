@@ -2,17 +2,17 @@
 
 ---
 
-### Category Name 1 
+### Projects 
 
-[Project 1](/Project/index)
+[Elevation in Antarctica](/Project/index)
 <img src="Project/Lab8_Project.png?raw=true"/>
 
 ---
-[Project 2](/pdf/sample_presentation.pdf)
+[Population Density](/Project 2/index)
 <img src="Project 2/lab1_project2.png?raw=true"/>
 
 ---
-[Project 3](http://example.com/)
+[Precipitation in Utah](/Project 3/index)
 <img src="Project 3/lab3_project3.png?raw=true"/>
 
 ---
