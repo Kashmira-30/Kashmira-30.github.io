@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Mgomery_household_2019_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[38.918597701234496,-77.71953648075463],[39.35874747389734,-76.86831040706672]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_EsriLightGray_0');
+        map.getPane('pane_EsriLightGray_0').style.zIndex = 400;
+        var layer_EsriLightGray_0 = L.tileLayer('http://server.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_EsriLightGray_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_EsriLightGray_0;
+        map.addLayer(layer_EsriLightGray_0);
+        function pop_Mgomery_household_2019_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GEOID'] !== null ? autolinker.link(feature.properties['GEOID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">total_hhtypeE</th>\
+                        <td>' + (feature.properties['total_hhtypeE'] !== null ? autolinker.link(feature.properties['total_hhtypeE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['total_hhtypeM'] !== null ? autolinker.link(feature.properties['total_hhtypeM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Female_hhE</th>\
+                        <td>' + (feature.properties['Female_hhE'] !== null ? autolinker.link(feature.properties['Female_hhE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Female_hhM'] !== null ? autolinker.link(feature.properties['Female_hhM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Male_hhE</th>\
+                        <td>' + (feature.properties['Male_hhE'] !== null ? autolinker.link(feature.properties['Male_hhE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Male_hhM'] !== null ? autolinker.link(feature.properties['Male_hhM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Both_households</th>\
+                        <td>' + (feature.properties['Both_households'] !== null ? autolinker.link(feature.properties['Both_households'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Other_households</th>\
+                        <td>' + (feature.properties['Other_households'] !== null ? autolinker.link(feature.properties['Other_households'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Mgomery_household_2019_1_0(feature) {
+            if (feature.properties['Both_households'] >= 0.140014 && feature.properties['Both_households'] <= 0.200000 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,204,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Both_households'] >= 0.200000 && feature.properties['Both_households'] <= 0.300000 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,239,170,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Both_households'] >= 0.300000 && feature.properties['Both_households'] <= 0.400000 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(169,220,142,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Both_households'] >= 0.400000 && feature.properties['Both_households'] <= 0.500000 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(120,198,121,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Both_households'] >= 0.500000 && feature.properties['Both_households'] <= 0.600000 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,175,96,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Both_households'] >= 0.600000 && feature.properties['Both_households'] <= 0.700000 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,143,74,1.0)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Both_households'] >= 0.700000 && feature.properties['Both_households'] <= 0.751783 ) {
+                return {
+                pane: 'pane_Mgomery_household_2019_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,104,55,1.0)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_Mgomery_household_2019_1');
+        map.getPane('pane_Mgomery_household_2019_1').style.zIndex = 401;
+        map.getPane('pane_Mgomery_household_2019_1').style['mix-blend-mode'] = 'normal';
+        var layer_Mgomery_household_2019_1 = new L.geoJson(json_Mgomery_household_2019_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Mgomery_household_2019_1',
+            layerName: 'layer_Mgomery_household_2019_1',
+            pane: 'pane_Mgomery_household_2019_1',
+            onEachFeature: pop_Mgomery_household_2019_1,
+            style: style_Mgomery_household_2019_1_0,
+        });
+        bounds_group.addLayer(layer_Mgomery_household_2019_1);
+        map.addLayer(layer_Mgomery_household_2019_1);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{' Mgomery_household_2019<br /><table><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_014020.png" /></td><td>0.14 - 0.2</td></tr><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_02031.png" /></td><td>0.2 - 0.3</td></tr><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_03042.png" /></td><td>0.3 - 0.4</td></tr><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_04053.png" /></td><td>0.4 - 0.5</td></tr><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_05064.png" /></td><td>0.5 - 0.6</td></tr><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_06075.png" /></td><td>0.6 - 0.7</td></tr><tr><td style="text-align: center;"><img src="legend/Mgomery_household_2019_1_0707526.png" /></td><td>0.7 - 0.752</td></tr></table>': layer_Mgomery_household_2019_1,"Esri Light Gray": layer_EsriLightGray_0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
