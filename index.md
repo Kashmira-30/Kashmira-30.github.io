@@ -4,8 +4,8 @@
 
 ### Projects 
 
-[Elevation in Antarctica](/Project/index)
-<img src="Project/Project1_analysis.png?raw=true"/>
+### Preview
+[Deforestation in the Brazilian Amazon](/Project/index)
 <img src="Project/Project1_image1.png?raw=true"/>
 
 ---
