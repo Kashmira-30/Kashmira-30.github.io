@@ -5,7 +5,8 @@
 ### Projects 
 
 [Elevation in Antarctica](/Project/index)
-<img src="Project/Lab8_Project.png?raw=true"/>
+<img src="Project/Project1_analysis.png?raw=true"/>
+<img src="Project/Project1_image1.png?raw=true"/>
 
 ---
 [Population Density](/Project 2/index)
