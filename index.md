@@ -6,7 +6,7 @@
 
 ### Preview
 [Deforestation in the Brazilian Amazon](/Project/index)
-<img src="Project/Project1_image1.png?raw=true"/>
+<img src="Project/Deforestation.gif?raw=true"/>
 
 ---
 [Population Density](/Project 2/index)
