@@ -16,6 +16,8 @@
 [Precipitation in Utah](/Project 3/index)
 <img src="Project 3/lab3_project3.png?raw=true"/>
 
+[Lab 6](/Lab_6/index)
+
 ---
 
 ### Category Name 2
