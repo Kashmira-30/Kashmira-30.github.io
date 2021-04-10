@@ -6,6 +6,7 @@ Lab 6
 # Creating a Bivariate Map with two vaariables
 
 To begin, you need an api key
+- link to get api key: https://api.census.gov/data/key_signup.html
 - listed below are the packages needed to get tidycensus data
 - Set your own workspace
 - The place to get census data: https://www.socialexplorer.com/data/metadata/
@@ -18,6 +19,9 @@ library(ggplot2)
 
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
+
+#The api key will go between the quotations
+census_api_key("---", install=TRUE)
 
 setwd("C:/Users/Owner/Desktop/GES486_Labs/Lab6")
 ```
@@ -59,7 +63,6 @@ Mgomery_household_2014$Other_households <- 1- Mgomery_household_2014$Both_househ
 # Merging tables
 To make a bivariate map, we need the data tables to be joined. This shows a right_join of the two tables.
 ```{r mergeanddiff}
-## Merge the two time periods
 Mgomery_household <- right_join(Mgomery_household_2019, Mgomery_household_2014, 
                               by="GEOID",
                               suffix=c(".19",".14"))
@@ -67,7 +70,7 @@ Mgomery_household <- right_join(Mgomery_household_2019, Mgomery_household_2014,
 
 To continue computing the data, this shows the difference in single female households from 2014 to 2019 as well as single male households in 2014 to 2019. Then I used the tranform function to make it into web mercator.
 ```{r}
-# Compute differences in households
+# Differences in households
 Mgomery_household$Female_hhE <- Mgomery_household$Female_hhE.19 -
         Mgomery_household$Female_hhE.14
 Mgomery_household$Male_hhE <- Mgomery_household$Male_hhE.19 -
