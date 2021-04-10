@@ -13,3 +13,11 @@ options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
 
 setwd
+
+
+
+
+
+
+
+<img src="Lab_6/Bivariate_map.png?raw=true"/>
