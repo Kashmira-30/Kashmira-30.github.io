@@ -20,4 +20,4 @@ setwd
 
 
 
-<img src="Lab_6/Bivariate_map.png?raw=true"/>
+<img src="Bivariate_map.png?raw=true"/>
