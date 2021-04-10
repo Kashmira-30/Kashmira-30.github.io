@@ -80,3 +80,11 @@ I used the st_write function to make the data accesible on QGIS to make the Biva
 ```{r}
 st_write(Mgomery_household_2019, "Mgomery_household_diff.geojson")
 ```
+
+### Finished map product from QGIS
+<img src="Bivariate_map.png?raw=true"/>
+
+#### Helpful links
+- link to how to make Bivariate maps: https://bnhr.xyz/2019/09/15/bivariate-choropleths-in-qgis.html
+- Useful Color blender site for maps: https://colorbrewer2.org/#type=sequential&scheme=OrRd&n=3
+- The background is Esri Light Gray
