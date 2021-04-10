@@ -1,0 +1,107 @@
+---
+title: "Lab 6"
+output: html_notebook
+author: Kashmira De Saram
+---
+
+```{r}
+library(tidycensus)
+library(tidyverse)
+
+# packages
+library(tidyverse)
+library(tidycensus)
+library(sf)
+library(ggplot2)
+
+
+options(tigris_class = "sf")
+options(tigris_use_cache = TRUE)
+
+setwd("C:/Users/Owner/Desktop/GES486_Labs/Lab6")
+```
+```{r}
+Mgomery_household_2019 <- get_acs(geography = "tract", 
+     variables = c("total_hhtype" = "B11012_001", # All household types
+                   "Female_hh" = "B11012_008", # All Female households, no spouse
+                   "Male_hh" = "B11012_013", # All Male households, no spouse 
+                   "med_hh_inc" = "B19013_001" # Median household income
+                   ), 
+     year = 2019,
+     survey = "acs5",
+     state = c(24), 
+     county = c(031), 
+     geometry = TRUE,
+     output = "wide") # need this
+
+```
+```{r}
+Mgomery_household_2014 <- get_acs(geography = "tract", 
+     variables = c("total_hhtype" = "B11012_001", # All household types
+                   "Female_hh" = "B11012_010", # All Female households, no spouse
+                   "Male_hh" = "B11012_007", # All Male households, no spouse 
+                   "med_hh_inc" = "B19013_001" # Median household income
+                   ),      
+     year = 2014,
+     survey = "acs5",
+     state = c(24), 
+     county = c(031),
+     geometry = FALSE, 
+     output = "wide") # need this
+```
+
+
+```{r}
+
+st_write(Mgomery_household_2014, "Mgomery_household_2014.csv") 
+# geometry is false!
+```
+
+```{r}
+# Compute percentage of Female and Male (with np spouse) households in 2019
+Mgomery_household_2019$Both_households <- (Mgomery_household_2019$Female_hhE + Mgomery_household_2019$Male_hhE) / Mgomery_household_2019$total_hhtypeE
+
+Mgomery_household_2019$Other_households <- 1- Mgomery_household_2019$Both_household
+
+
+```
+```{r}
+# Compute percentage of Female and Male (with np spouse) households in 2014
+Mgomery_household_2014$Both_households <- (Mgomery_household_2014$Female_hhE + Mgomery_household_2014$Male_hhE)/ Mgomery_household_2014$total_hhtypeE
+
+Mgomery_household_2014$Other_households <- 1- Mgomery_household_2014$Both_households
+```
+
+
+```{r mergeanddiff}
+## Merge the two time periods
+Mgomery_household <- right_join(Mgomery_household_2019, Mgomery_household_2014, 
+                              by="GEOID",
+                              suffix=c(".19",".14"))
+```
+
+
+```{r}
+
+# Compute differences in worktimes
+Mgomery_household$Female_hhE <- Mgomery_household$Female_hhE.19 -
+        Mgomery_household$Female_hhE.14
+
+Mgomery_household$Male_hhE <- Mgomery_household$Male_hhE.19 -
+        Mgomery_household$Male_hhE.14
+
+# Compute difference in median household income
+Mgomery_household$mhhi_diff <- Mgomery_household$med_hh_incE.19 - Mgomery_household$med_hh_incE.14
+
+
+Mgomery_household <- st_transform(Mgomery_household, 3857) # reproject into web-mercator because Google owns everything   
+```
+```{r}
+## Write to fill, Here I'm going to use ggplot. Not that I specified the CRS (projection)
+
+st_write(Mgomery_household_2019, "Mgomery_household_diff.geojson")
+```
+
+```
+
+
