@@ -99,7 +99,7 @@ Mgomery_household$mhhi_diff <- Mgomery_household$med_hh_incE.19 - Mgomery_househ
 
 Mgomery_household <- st_transform(Mgomery_household, 3857) # reproject into web-mercator  
 ```
-### write the cvs to geojson
+### write the csv to geojson
 ```{r}
 
 st_write(Mgomery_household_2019, "Mgomery_household_diff.geojson")
