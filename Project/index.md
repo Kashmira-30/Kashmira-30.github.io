@@ -15,7 +15,7 @@ The maps are useful in showing the deforestation in brazil during that decade, i
 
 ### Maps
 <img src="Project1_image1.png?raw=true"/>
-##### Green = Area of Deforestation (not Forests) in the certain years listed
+Green = Area of Deforestation (not Forests) in the certain years listed
 <img src="Project1_image2.png?raw=true"/>
 <img src="Project1_image2.5.png?raw=true"/>
 <img src="Project1_image3.png?raw=true"/>
