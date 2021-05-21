@@ -10,7 +10,7 @@
 
 ---
 [Change Over Time Map](/Project 2/index)
-<img src="Project 2/lab1_project2.png?raw=true"/>
+<img src="Project 2/Lab5.gif?raw=true"/>
 
 ---
 [Final Project](/Project 3/index)
