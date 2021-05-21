@@ -7,10 +7,10 @@ Can download programs through Chocolatey: https://community.chocolatey.org/packa
 *(this would require you to download Chocolatey first)
 * Tutorial on turning maps into webmaps: https://www.qgistutorials.com/en/docs/web_mapping_with_qgis2web.html
 
-## Description
+#### Description
 I used Rstudio to get Census Data using an api key. Next I processed that data through Rstudio to find the variables I wanted and then turned it into a geojson file to be edited in QGIS.
 
-## R Code
+#### R Code
 
 ```{r, message=FALSE, warning=FALSE}
 # Packages I used
@@ -24,7 +24,7 @@ options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
 
 ```
-##  Next I'm getting my data from the census tract, I used ACS 5 year estimates (2010-2014) and (2015-2019).
+####  Next I'm getting my data from the census tract, I used ACS 5 year estimates (2010-2014) and (2015-2019).
 ```{r, message=FALSE, warning=FALSE}
 # This gets the 2015-2019 population, race+eth, housing units, and median household income from the ACS
 # This shows the household type whether its single Female or Male compared to all other types of households
@@ -58,7 +58,7 @@ Mgomery_household_2014 <- get_acs(geography = "tract",
      output = "wide") 
       
 ```
-## Next came the calculating, I've explained what I wanted to analyze with the data I got below.
+#### Next came the calculating, I've explained what I wanted to analyze with the data I got below.
 ```{r eveshare, message=FALSE, warning=FALSE}
 
 # Compute Female and Male households
@@ -76,7 +76,7 @@ Mgomery_household_2014$Other_households <- 1- Mgomery_household_2014$Both_househ
 
 
 ```
-## Last step before turning everything into a Geojson was to reproject as a Web-Mercator
+#### Last step before turning everything into a Geojson was to reproject as a Web-Mercator
 ```{r, message=FALSE, warning=FALSE}
 ## Transform data 
 
@@ -91,7 +91,7 @@ Mgomery_household_2014 <- st_transform(Mgomery_household_2014, 3857)
 ## st_write(Mgomery_household_2019, " Mgomery_household_2019.geojson")
 ## st_write(Mgomery_household_2014, " Mgomery_household_2014.geojson")
 ```
-### Here are the Images I made after symbolizing the data on QGIS
+#### Here are the Images I made after symbolizing the data on QGIS
 <img src= "Montgomery_County_Households_2010-14.png?raw=true"/>
 <img src= "Montgomery_County_Households_2015-19.png?raw=true"/>
 
