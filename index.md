@@ -14,7 +14,7 @@
 
 ---
 [Final Project](/Project 3/index)
-<img src="Project 3/lab3_project3.png?raw=true"/>
+<img src="Project 3/COT.gif?raw=true"/>
 
 [Lab 6](/Lab_6/index)
 
@@ -34,5 +34,5 @@
 
 
 ---
-<p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
+<p style="font-size:15px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
 <!-- Remove above link if you don't want to attibute -->
