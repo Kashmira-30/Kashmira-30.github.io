@@ -9,11 +9,11 @@
 <img src="Project/Deforestation.gif?raw=true"/>
 
 ---
-[Population Density](/Project 2/index)
+[Change Over Time Map](/Project 2/index)
 <img src="Project 2/lab1_project2.png?raw=true"/>
 
 ---
-[Precipitation in Utah](/Project 3/index)
+[Final Project](/Project 3/index)
 <img src="Project 3/lab3_project3.png?raw=true"/>
 
 [Lab 6](/Lab_6/index)
