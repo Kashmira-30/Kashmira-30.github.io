@@ -45,8 +45,6 @@ MD_county_mhh4 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19
                            state = c(24), 
                            geometry = TRUE,  
                            output = "wide")
-
-
 ```
 
 ```{r, message=FALSE, warning=FALSE}
