@@ -26,8 +26,9 @@ The point of this map was to see how the population of an area correlates with M
 
 #### Here is the process I used
 ---------------------------------------------------------------------------------------
+
 ```{r, message=FALSE, warning=FALSE}
-knitr::opts_knit$set(root.dir = "C:/Users/Owner/Desktop/Final_project") 
+knitr::opts_knit$set(root.dir = "C:/Users/Owner/Desktop/GES486_Labs/Final_project") 
 library(tidycensus)
 library(tidyverse)
 library(sf)
@@ -36,11 +37,16 @@ library(readr)
 library(ggplot2)
 library(sp) 
 library(scales) 
+library(janitor) 
+library(readr)
 library(dplyr)
 
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
+```
+```
 
+```{r, message=FALSE, warning=FALSE}
 MD_county_mhh4 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19013_001", "Total_pop" = "B01003_001"),
                            year = 2015, 
                            survey = "acs5", 
@@ -48,6 +54,10 @@ MD_county_mhh4 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19
                            geometry = TRUE,  
                            output = "wide")
 
+
+```
+
+```{r, message=FALSE, warning=FALSE}
 library(biscale)
 library(cowplot)
 library(leaflet)
@@ -69,6 +79,7 @@ Legend1 <- bi_legend(pal = "DkBlue",
 ggdraw() + 
   draw_plot(map1, 0, 0, 1, 1) +
   draw_plot(Legend1, 0.2, 0.02, 0.2, 0.2)
+
 ```
 ---------------------------------------------------------------------------------------
 
