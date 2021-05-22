@@ -73,8 +73,11 @@ ggdraw() +
   draw_plot(Legend1, 0.2, 0.02, 0.2, 0.2)
 
 ```
+
 #### Final output
 <img src= "Bivariate_mhhi.png?raw=true"/>
+
+
 
 #### Making racial demographic maps for Black, White, and Asian populations in MD:
 This was another RStudio map, using census data to show the demographic.
@@ -97,11 +100,6 @@ library(dplyr)
 
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
-```
-
-```{r, message=FALSE, warning=FALSE}
-acs_variable_list = load_variables(2015,"acs5", cache= TRUE) 
-write.csv(acs_variable_list,'acs_variable_list_2018.csv', row.names = FALSE)
 ```
 
 ```{r, message=FALSE, warning=FALSE}
