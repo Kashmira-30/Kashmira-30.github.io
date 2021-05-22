@@ -20,6 +20,10 @@ To make the change over time map, I focused on every 5 years (2000, 2005,…etc.
 This was done in RStudio
 The point of this map was to see how the population of an area correlates with Median Household income in each tract. This is to see if the areas of higher crime are areas of higher or lower income and higher or lower total population.
 
+
+#### Final output
+<img src= "Bivariate_mhhi.png?raw=true"/>
+
 #### Here is the process I used
 ---------------------------------------------------------------------------------------
 ```{r, message=FALSE, warning=FALSE}
@@ -67,8 +71,6 @@ ggdraw() +
   draw_plot(Legend1, 0.2, 0.02, 0.2, 0.2)
 ```
 ---------------------------------------------------------------------------------------
-#### Final output
-<img src= "Bivariate_mhhi.png?raw=true"/>
 
 
 
@@ -76,25 +78,11 @@ ggdraw() +
 This was another RStudio map, using census data to show the demographic.
 
 #### Process:
+
+
 ---------------------------------------------------------------------------------------
 
 ```{r, message=FALSE, warning=FALSE}
-knitr::opts_knit$set(root.dir = "C:/Users/Owner/Desktop/Final_project") 
-library(tidycensus)
-library(tidyverse)
-library(sf)
-library(geojson)
-library(readr)
-library(ggplot2)
-library(sp) 
-library(scales) 
-library(janitor) 
-library(readr)
-library(dplyr)
-
-options(tigris_class = "sf")
-options(tigris_use_cache = TRUE)
-
 MD_county_mhh3 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19013_001", "White_pop" = "B02001_002", "Black_pop" = "B02001_003", "Asian_pop" = "B02001_005"),
                            year = 2015, 
                            survey = "acs5", 
@@ -142,13 +130,21 @@ Throughout this project, several maps were made to analyze crime statistics of r
 
 ### Data Sources:
 * Maryland County Boundary: https://data.imap.maryland.gov/datasets/4c172f80b626490ea2cff7b699febedb_1?geometry=-80.737%2C38.076%2C-73.799%2C39.574
+
 * Federal Police Stations: https://data.imap.maryland.gov/datasets/maryland-police-federal-police-stations?geometry=-77.337%2C38.926%2C-76.470%2C39.113
+
 * Maryland County Police Stations: https://data.imap.maryland.gov/datasets/maryland-police-county-police-stations?geometry=-80.869%2C38.138%2C-73.931%2C39.635
+ 
 * Maryland Local Correctional Facilities: https://data.imap.maryland.gov/datasets/maryland-correctional-facilities-local-correctional-facilities?geometry=-80.860%2C38.149%2C-73.922%2C39.645
+
 * Maryland State Correctional facilities: https://data.imap.maryland.gov/datasets/maryland-correctional-facilities-state-correctional-facilities?geometry=-80.726%2C38.132%2C-73.788%2C39.629
+
 * Maryland K-12 Public schools: https://data.imap.maryland.gov/datasets/f49c4bb1a9a74029ae974e6d6fd08b71_5?geometry=-80.755%2C38.097%2C-73.818%2C39.594
+
 * Crime data: https://opendata.maryland.gov/Public-Safety/Violent-Crime-Property-Crime-by-County-1975-to-Pre/jwfa-fdxs
+
 * Maryland Department of State Police (2015). Crime in Maryland: Uniform Crime Report: UCR [Annapolis, MD]: Maryland Depart. of State Police
+
 * Maryland Department of State Police (2017). Crime in Maryland: Uniform Crime Report: UCR [Annapolis, MD]: Maryland Depart. of State Police
 
 
