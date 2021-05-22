@@ -45,6 +45,8 @@ MD_county_mhh4 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19
                            state = c(24), 
                            geometry = TRUE,  
                            output = "wide")
+
+
 ```
 
 ```{r, message=FALSE, warning=FALSE}
@@ -85,13 +87,21 @@ library(tidycensus)
 library(tidyverse)
 library(sf)
 library(geojson)
+library(readr)
 library(ggplot2)
 library(sp) 
 library(scales) 
 library(janitor) 
+library(readr)
+library(dplyr)
 
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
+```
+
+```{r, message=FALSE, warning=FALSE}
+acs_variable_list = load_variables(2015,"acs5", cache= TRUE) 
+write.csv(acs_variable_list,'acs_variable_list_2018.csv', row.names = FALSE)
 ```
 
 ```{r, message=FALSE, warning=FALSE}
@@ -107,8 +117,8 @@ MD_county_mhh3 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19
 ggplot(MD_county_mhh3) + geom_sf(aes(fill = White_popE, colour = White_popE))
 ggplot(MD_county_mhh3) + geom_sf(aes(fill = Black_popE, color = Black_popE))
 ggplot(MD_county_mhh3) + geom_sf(aes(fill = Asian_popE, color = Asian_popE))
-
 ```
+
 #### Final Output
 <img src= "white_pop.png?raw=true"/>        <img src= "Black_pop.png?raw=true"/>         <img src= "Asian_pop.png?raw=true"/>   
 
