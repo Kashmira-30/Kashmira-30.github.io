@@ -20,8 +20,8 @@ To make the change over time map, I focused on every 5 years (2000, 2005,…etc.
 This was done in RStudio
 The point of this map was to see how the population of an area correlates with Median Household income in each tract. This is to see if the areas of higher crime are areas of higher or lower income and higher or lower total population.
 
-Here is the process I used
-
+#### Here is the process I used
+---------------------------------------------------------------------------------------
 ```{r, message=FALSE, warning=FALSE}
 knitr::opts_knit$set(root.dir = "C:/Users/Owner/Desktop/Final_project") 
 library(tidycensus)
@@ -36,9 +36,7 @@ library(dplyr)
 
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
-```
 
-```{r, message=FALSE, warning=FALSE}
 MD_county_mhh4 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19013_001", "Total_pop" = "B01003_001"),
                            year = 2015, 
                            survey = "acs5", 
@@ -46,10 +44,6 @@ MD_county_mhh4 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19
                            geometry = TRUE,  
                            output = "wide")
 
-
-```
-
-```{r, message=FALSE, warning=FALSE}
 library(biscale)
 library(cowplot)
 library(leaflet)
@@ -71,9 +65,8 @@ Legend1 <- bi_legend(pal = "DkBlue",
 ggdraw() + 
   draw_plot(map1, 0, 0, 1, 1) +
   draw_plot(Legend1, 0.2, 0.02, 0.2, 0.2)
-
 ```
-
+---------------------------------------------------------------------------------------
 #### Final output
 <img src= "Bivariate_mhhi.png?raw=true"/>
 
@@ -83,6 +76,7 @@ ggdraw() +
 This was another RStudio map, using census data to show the demographic.
 
 #### Process:
+---------------------------------------------------------------------------------------
 
 ```{r, message=FALSE, warning=FALSE}
 knitr::opts_knit$set(root.dir = "C:/Users/Owner/Desktop/Final_project") 
@@ -100,23 +94,19 @@ library(dplyr)
 
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
-```
 
-```{r, message=FALSE, warning=FALSE}
 MD_county_mhh3 <- get_acs(geography = "tract", variables = c("Med_hh_inc" = "B19013_001", "White_pop" = "B02001_002", "Black_pop" = "B02001_003", "Asian_pop" = "B02001_005"),
                            year = 2015, 
                            survey = "acs5", 
                            state = c(24), 
                            geometry = TRUE,  
                            output = "wide")
-```
 
-```{r}
 ggplot(MD_county_mhh3) + geom_sf(aes(fill = White_popE, colour = White_popE))
 ggplot(MD_county_mhh3) + geom_sf(aes(fill = Black_popE, color = Black_popE))
 ggplot(MD_county_mhh3) + geom_sf(aes(fill = Asian_popE, color = Asian_popE))
 ```
-
+----------------------------------------------------------------------------------------
 #### Final Output
 <img src= "white_pop.png?raw=true"/>        <img src= "Black_pop.png?raw=true"/>         <img src= "Asian_pop.png?raw=true"/>   
 
